@@ -50,7 +50,6 @@ type Lexer(input: string) =
         Token(tokenType, ch)
 
     member this.NextToken() =
-        //this.skipWhitespace()
         this.readChar()
         let rec tok = 
             match ch with
