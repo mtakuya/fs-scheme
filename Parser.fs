@@ -33,6 +33,7 @@ let parseList = sepBy parseExpr spaces1 |>> LispList
 let parseDottedList =
     pipe2 (sepEndBy parseExpr spaces1) (pchar '.' >>. spaces >>. parseExpr) (fun head tail -> LispDottedList(head, tail))
 
+let (:=) (r: 'T ref) (v: 'T)  = r.Value <- v
 parseExprRef
 := choice [ parseAtom
             parseString
